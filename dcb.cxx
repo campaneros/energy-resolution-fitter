@@ -33,11 +33,17 @@ double DoubleSidedCrystalballFunction(double *x, double *par)
 }
 
 void dcb(TH1 *h){
-  double xmin = h->GetXaxis()->GetXmin();
-  double xmax = h->GetXaxis()->GetXmax();
+  int firstbin = h->GetXaxis()->GetFirst();
+  int lastbin  = h->GetXaxis()->GetLast();
+  double xmin = h->GetXaxis()->GetBinLowEdge(firstbin);
+  double xmax = h->GetXaxis()->GetBinUpEdge(lastbin);
   auto *f = new TF1("dcb", DoubleSidedCrystalballFunction, xmin, xmax, 7);
   f->SetParameters(2, 2, 2, 2, h->GetMean(), h->GetRMS(), h->Integral());
+  f->SetParLimits(0, 0.1, 10);
+  f->SetParLimits(1, 0.1, 10);
   f->SetParLimits(2, 1, 10);
-  f->SetParLimits(2, 1, 10);
-  h->Fit(f);
+  f->SetParLimits(3, 1, 10);
+  f->SetParLimits(4, xmin, xmax);
+  f->SetParLimits(5, 0, xmax-xmin);
+  h->Fit(f, "R");
 }
