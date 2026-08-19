@@ -1,4 +1,4 @@
-en,sigma_abs,zero,err_sigma_abs,peak_abs,err_peak_abs
+en,sigma_abs,zero,err_sigma_abs,peak_abs,err_peak_abs,bes
 30,10.6491,0,0.021766,1008.26,0.0625546,0.17
 40,11.6527,0,0.121279,1340.01,0.138194,0.30
 60,14.1495,0,0.0181105,2009.84,0.041164,0.22

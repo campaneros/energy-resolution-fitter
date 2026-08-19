@@ -8,7 +8,7 @@ root << EOF
   TTree *t = new TTree("t", "t");
   t->ReadFile("$resofile");
 
-  t->Draw("en:sigma_abs/peak_abs:0:sigma_abs/peak_abs * sqrt( pow(err_sigma_abs/sigma_abs,2)+ pow(err_peak_abs/peak_abs, 2) ) ");
+  t->Draw("en:sqrt(pow(sigma_abs/peak_abs,2) - bes*bes*1e-4 - pow(1.92e-7*pow(en, 2.5), 2)*1e-4 ):0:sigma_abs/peak_abs * sqrt( pow(err_sigma_abs/sigma_abs,2)+ pow(err_peak_abs/peak_abs, 2) )");
   auto *ge = new TGraphErrors(t->GetSelectedRows(), t->GetV1(), t->GetV2(), t->GetV3(), t->GetV4());
   ge->SetName("gReso_${resistance}");
   ge->SetTitle("${resistance} #Omega");
