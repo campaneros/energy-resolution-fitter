@@ -2,10 +2,9 @@
 
 Fitting tools to extract the energy resolution of the CMS ECAL from H4 test-beam data (2026 test beam campaign, run at 340/400/500 Ω preamp feedback resistance).
 
-Input histograms (uncalibrated 3x3 amplitude spectra per beam energy) are produced by a separate DQM/analysis repo and are read directly as ROOT files by the scripts here.
+Inspiration from https://github.com/raeubaen/energy-reso-fitter
 
-- Histograms: https://rgargiul.web.cern.ch/reso-energy-ecal-h4-dqm-2026/
-- Repo that creates the histograms: `git@github.com:raeubaen/prompt-h4-cms-ecal-analysis.git`
+Input root trees read directly as ROOT files by the scripts here.
 
 ## What it does
 
